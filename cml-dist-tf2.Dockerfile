@@ -1,4 +1,4 @@
-From docker.repository.cloudera.com/cdsw/ml-runtime-jupyterlab-python3.8-standard:2021.09.1-b5
+FROM docker.repository.cloudera.com/cdsw/ml-runtime-jupyterlab-python3.8-standard:2021.09.1-b5
 
 # Upgrade packages in the base image
 RUN apt-get update && \

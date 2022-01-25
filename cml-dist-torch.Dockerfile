@@ -1,4 +1,4 @@
-From docker.repository.cloudera.com/cdsw/ml-runtime-jupyterlab-python3.8-standard:2021.09.1-b5
+FROM docker.repository.cloudera.com/cdsw/ml-runtime-jupyterlab-python3.8-standard:2021.09.1-b5
 
 # Upgrade packages in the base image
 RUN apt-get update && \
@@ -16,6 +16,7 @@ RUN wget https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.2.tar.g
 
 RUN  pip3 install torch==1.8.1+cpu torchvision==0.9.1+cpu torchaudio==0.8.1 -f https://download.pytorch.org/whl/torch_stable.html && ldconfig && \
   HOROVOD_WITHOUT_GLOO=1 HOROVOD_WITH_MPI=1 HOROVOD_WITH_PYTORCH=1 pip3 install --no-cache-dir horovod==0.21.3 && \
+  pip3 install tensorboardX && \
   pip3 cache purge
 
 # Override Runtime label and environment variables metadata
